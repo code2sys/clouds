@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "AutoLotto": {
+            "applicationId": "leuHAA2omSklTr3hTcy6uZBqsCmApLnRqLIKNUy2", 
+            "masterKey": "BltAQ7DlfMqP44flI2B5LHv99yPXXj1kJ5KxiiTd"
+        }, 
+        "_default": {
+            "link": "AutoLotto"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.4"
+    }
+}
