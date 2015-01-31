@@ -1,0 +1,13 @@
+
+# git files
+*.orig
+
+# OS X Finder
+.DS_Store
+
+*.lock
+
+*.swp
+*~
+*.dat
+*.dep
