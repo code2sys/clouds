@@ -1,4 +1,13 @@
 
+/*
+@Params
+	type : 0/1 (power ball/mega millions)
+	draw : draw id
+	group (optional) : group id
+	tickets : array of tickets (each ticket is a set of numbers, last number is MEGA)
+
+*/
+
 Parse.Cloud.define("ticket_purchase", function(request, response) {
 
 	Parse.Cloud.useMasterKey();
@@ -56,9 +65,12 @@ Parse.Cloud.define("ticket_purchase", function(request, response) {
 
 		return promise;
 
-	}).then(function(result) {
+	}).then(function(result)) {
 
-		response.success(tickets);
+		response.success({
+			'msg':'success',
+			'result':tickets
+		});
 
 	}, function(error) {
 
@@ -79,7 +91,10 @@ Parse.Cloud.define("ticket_get_mine", function(request, response) {
 	query.doesNotExist("buyer_group");
 	query.find().then(function(numbers) {
 
-		response.success(numbers);
+		response.success({
+			'msg':'success',
+			'result':numbers
+		});
 
 	}, function(error) {
 
@@ -111,7 +126,10 @@ Parse.Cloud.define("ticket_get_group", function(request, response) {
 
 	}).then(function(groups) {
 
-		response.success(groups);
+		response.success({
+			'msg':'success',
+			'result':groups
+		});
 
 	}, function(error) {
 

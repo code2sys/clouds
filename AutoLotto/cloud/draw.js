@@ -1,18 +1,30 @@
 Parse.Cloud.define("lucky_numbers", function(request, response) {
 });
 
-Parse.Cloud.define("draws_get", function(request, response) {
+/*
+@param
+limit (optional)
+skip (optional)
+*/
+Parse.Cloud.define("draws_get_all", function(request, response) {
 
 	Parse.Cloud.useMasterKey();
 
-	var groupQuery = new Parse.Query('Draw');
-	groupQuery.descending('createdAt');
-	groupQuery.skip(request.params.skip);
-	groupQuery.limit(request.params.limit);
+	var query = new Parse.Query('Draw');
+	query.descending('createdAt');
+	
+	if (typeof request.params.limit !== "undefined")
+		query.limit(request.params.limit);
 
-	groupQuery.find().then(function(result) {
+	if (typeof request.params.skip !== "undefined")
+		query.limit(request.params.skip);
 
-		response.success(result);
+	query.find().then(function(result) {
+
+		response.success({
+			'msg':'success',
+			'result':result
+		});
 
 	}, function(error) {
 
