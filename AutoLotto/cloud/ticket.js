@@ -109,6 +109,7 @@ Parse.Cloud.define("ticket_purchase", function(request, response) {
 			'result':{
 				'tickets':tickets,
 				'draw':draw
+			}
 		});
 
 	}, function(error) {
