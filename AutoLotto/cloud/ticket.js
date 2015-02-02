@@ -65,7 +65,7 @@ Parse.Cloud.define("ticket_purchase", function(request, response) {
 
 		return promise;
 
-	}).then(function(result)) {
+	}).then(function(result) {
 
 		response.success({
 			'msg':'success',

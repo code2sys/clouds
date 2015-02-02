@@ -181,7 +181,7 @@ Parse.Cloud.define("invite", function(request, response) {
 		query.equalTo('objectId', person.id);
 		return query.find();
 
-	}).then(function(results)) {
+	}).then(function(results) {
 
 		if (results.length > 0) // the person is friend
 		{
